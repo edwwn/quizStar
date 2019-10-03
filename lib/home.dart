@@ -6,12 +6,23 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
-  Widget customcard() {
+  List<String> images = [
+    "images/py.png",
+    "images/java.png",
+    "images/js.png",
+    "images/cpp.png",
+    "images/linux.png",
+  ];
+
+  Widget customcard(String langaName, String image) {
     return Padding(
       padding: EdgeInsets.all(
         20.0,
       ),
-      child: Material(
+      child: InkWell(
+        onTap: () {
+          debugPrint("Card Tapped");
+        },
         child: Material(
           color: Colors.indigoAccent,
           elevation: 10.0,
@@ -31,8 +42,9 @@ class _homepageState extends State<homepage> {
                       width: 100,
                       child: ClipOval(
                         child: Image(
+                          fit: BoxFit.cover,
                           image: AssetImage(
-                            "images/py.png",
+                            image,
                           ),
                         ),
                       ),
@@ -41,7 +53,7 @@ class _homepageState extends State<homepage> {
                 ),
                 Center(
                   child: Text(
-                    "Python",
+                    langaName,
                     style: TextStyle(
                       fontSize: 24.0,
                       color: Colors.white,
@@ -83,7 +95,11 @@ class _homepageState extends State<homepage> {
       ),
       body: ListView(
         children: <Widget>[
-          customcard(),
+          customcard("Python", images[0]),
+          customcard("Java", images[1]),
+          customcard("Java Script", images[2]),
+          customcard("C++", images[3]),
+          customcard("Linux", images[4]),
         ],
       ),
     );
