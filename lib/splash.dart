@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:quizstar/home.dart';
 
 class splashscreen extends StatefulWidget {
   @override
@@ -7,6 +10,16 @@ class splashscreen extends StatefulWidget {
 
 class _splashscreenState extends State<splashscreen> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => homepage(),
+      ));
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber,
@@ -14,7 +27,8 @@ class _splashscreenState extends State<splashscreen> {
         child: Text(
           "QuizStar",
           style: TextStyle(
-            fontSize: 60.0,
+            fontSize: 40.0,
+            color: Colors.white,
           ),
         ),
       ),
