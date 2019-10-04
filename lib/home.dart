@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizstar/quizpage.dart';
 
 class homepage extends StatefulWidget {
   @override
@@ -21,7 +22,9 @@ class _homepageState extends State<homepage> {
       ),
       child: InkWell(
         onTap: () {
-          debugPrint("Card Tapped");
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => getJson(),
+          ));
         },
         child: Material(
           color: Colors.indigoAccent,
