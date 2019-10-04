@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:quizstar/quizpage.dart';
 
 class homepage extends StatefulWidget {
@@ -87,6 +88,8 @@ class _homepageState extends State<homepage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return Scaffold(
       appBar: AppBar(
         title: Text(
